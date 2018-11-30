@@ -1,0 +1,5 @@
+template_path: templates/bucket.yaml
+hooks:
+  before_delete:
+    - !s3_empty_bucket bucket::BucketName
+    - !s3_delete_bucket bucket::BucketName

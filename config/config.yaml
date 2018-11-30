@@ -1,0 +1,3 @@
+project_code: blog-lambda-custom-runtime
+profile: default
+region: eu-west-1

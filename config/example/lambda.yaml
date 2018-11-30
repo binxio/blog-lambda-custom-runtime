@@ -1,0 +1,12 @@
+template_path: templates/lambda.yaml
+dependencies:
+  - example/bucket
+parameters:
+  S3Bucket: !stack_output bucket::BucketName
+  S3Key: lambda.zip
+  S3Version: !s3_version bucket::BucketName/lambda.zip
+hooks:
+  before_create:
+    - !s3_upload_file lambda.zip lambda.zip bucket::BucketName
+  before_update:
+    - !s3_upload_file lambda.zip lambda.zip bucket::BucketName
